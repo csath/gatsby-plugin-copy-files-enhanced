@@ -6,7 +6,7 @@ You can use this plugin to copy files in your Gatsby project. Specify absolute `
 
 - In `gatsby-plugin-copy-files` you should specify destination and you have no option to copy to multiple direcotries **in one go**. `gatsby-plugin-copy-files-enhanced` enables you to wildcard your destination, so that you can easily copy files.
 
-- This plugin has to option to **overwrite or not** your destination direcotry simply using `purge` plugin option.
+- This plugin has option to **overwrite** your destination direcotry simply using `purge` plugin option.
 
 
 #### Plugin options
