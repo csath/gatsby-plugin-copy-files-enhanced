@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-copy-files-enhanced",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Copies files from source to destination with regex support.",
   "main": "gatsby-node.js",
   "repository": "https://github.com/csath/gatsby-plugin-copy-files-enhanced",
