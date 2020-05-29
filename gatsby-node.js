@@ -19,15 +19,16 @@ exports.onCreateNode = ({ node }, pluginOptions) => {
 			// if regex enabled
 			if (regex1.test(destination)) {
 				const hits = regex1.exec(destination)
-
+			
 				if (!hits) return
+				
 				const regPrefix = hits[1]
 				const regPostfix = hits[2]
 
-				const dirList = getDirectories(regPrefix)
-
+				const dirList = getDirectories(path.join(process.cwd(), 'public', regPrefix))		
+				
 				dirList.forEach(e => {
-					const newDestination = regPrefix + '/' + e + regPostfix;
+					const newDestination = regPrefix + '/' + e + regPostfix;					
 					const newPath = path.join(
 						process.cwd(),
 						'public',
@@ -35,7 +36,6 @@ exports.onCreateNode = ({ node }, pluginOptions) => {
 						relativeToDest,
 						node.base
 					);
-
 					fsExtra.copy(node.absolutePath, newPath, { overwrite: purge }, err => {
 						if (err) {
 							console.error('Error copying file', err);
