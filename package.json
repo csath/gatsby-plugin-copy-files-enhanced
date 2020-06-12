@@ -11,7 +11,10 @@
   },
   "keywords": [
     "gatsby",
-    "gatsby-plugin"
+    "gatsby-plugin",
+    "gatsby-plugin-copy-files-enhanced",
+    "gatsby-plugin-copy-files",
+    "file-copy"
   ],
   "bugs": {
     "url": "https://github.com/csath/gatsby-plugin-copy-files-enhanced/issues"
