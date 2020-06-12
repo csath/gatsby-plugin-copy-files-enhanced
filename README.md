@@ -44,12 +44,12 @@ This plugin should be used with `gatsby-source-filesystem`
 Let's consider that you have a `template.js` file that you need to copy to all reports within `public/reports/` direcotry and you are not sure of report names and how many would be there.
 
 
-<img src="assets/start.png" width="350">
+<img src="https://github.com/csath/gatsby-plugin-copy-files-enhanced/blob/master/assets/start.png" width="350">
 
 
 In such case you can wildcard the destination path so that you can easily copy `template.js` to all direcotries with `public/reports/`
 
-<img src="assets/end.png" width="350">
+<img src="https://github.com/csath/gatsby-plugin-copy-files-enhanced/blob/master/assets/end.png" width="350">
 
 
 ##### Simply use this code to get this done
