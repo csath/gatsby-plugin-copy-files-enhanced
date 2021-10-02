@@ -26,6 +26,7 @@ exports.onCreateNode = ({node, reporter}, pluginOptions) => {
 				const regPrefix = hits[1]
 				const regPostfix = hits[2]
 
+				mkdirp.sync(path.join(process.cwd(), 'public', regPrefix))
 				const dirList = getDirectories(path.join(process.cwd(), 'public', regPrefix))
 
 				dirList.forEach(e => {
@@ -37,13 +38,11 @@ exports.onCreateNode = ({node, reporter}, pluginOptions) => {
 						relativeToDest,
 						node.base
 					);
-					mkdirp(path.dirname(newPath)).then(() => {
-						fsExtra.copy(node.absolutePath, newPath, {overwrite: purge}, err => {
-							if (err) {
-								reporter.error('Error copying file', err);
-							}
-						});
-					})
+					fsExtra.copy(node.absolutePath, newPath, {overwrite: purge}, err => {
+						if (err) {
+							reporter.error('Error copying file', err);
+						}
+					});
 				})
 			}
 			// if regex not enabled
