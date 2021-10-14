@@ -9,11 +9,14 @@ const getDirectories = source =>
 const regex1 = RegExp('(.*)\\/\\*(.*)');
 
 exports.onCreateNode = ({ node }, pluginOptions) => {
-	const { source, destination = '', purge = false } = pluginOptions;
+	const { source, destination = '', purge = false, extensions = null } = pluginOptions;
 	const sourceNormalized = path.normalize(source);
 	if (node.internal.type === 'File') {
 		const dir = path.normalize(node.dir);
 		if (dir.includes(sourceNormalized)) {
+			// if extensions are specified, do not copy this file if the extension is not in the provided list
+			if (extensions && !extensions.includes(node.extension)) return;
+
 			const relativeToDest = dir.replace(sourceNormalized, '');
 
 			// if regex enabled

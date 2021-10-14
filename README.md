@@ -16,6 +16,7 @@ You can use this plugin to copy files in your Gatsby project. Specify absolute `
 |`source`     |Absolute path of the source (eg: `${__dirname}/path`)|
 |`destination`|Relative path to destination within `public/` direcotry </br> You can add `/*/` inside destination path to wildcard destination lookup </br> *Refer to [graphical explanation](#graphical-explanation) for better understanding*
 |`purge`      |Overwrite destination. `false` by default|
+|`extensions`      |Filter files to copy from their extension `null` by default, Provide an array if you wish to filter extensions (eg: `['png', 'jpg']`)|
 
 #### Important
 This plugin should be used with `gatsby-source-filesystem`
@@ -35,6 +36,14 @@ This plugin should be used with `gatsby-source-filesystem`
         source: `${__dirname}/src/images` ,
         destination: '/containers/*/images',
         purge: false,
+    }
+}, {
+    resolve: 'gatsby-plugin-copy-files-enhanced',
+    options: {
+        source: `${__dirname}/src/content` ,
+        destination: '/images',
+        purge: true,
+        extensions: ['png', 'jpg'],
     }
 }
 ```
